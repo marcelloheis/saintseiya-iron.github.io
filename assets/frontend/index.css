@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&family=Noto+Serif+JP:wght@600&display=swap');
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    height: 100vh; /* Definindo altura fixa para a wrapper */
+}
+
+.menu {
+    width: 35px;
+    background-image: url('images/pattern_menu.png');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+    position: relative;
+}
+
+.menu::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(9, 1, 0, 0.9), rgba(83, 0, 0, 0.85));
+    z-index: 1; /* Coloca o gradiente atrás do conteúdo do menu */
+}
+
+.menu-icon {
+    margin: 8px 0;
+    font-size: 20px;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    z-index: 1; /* Certifica-se de que o conteúdo do menu está acima do gradiente */
+}
+
+.menu-icon a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu-icon p {
+    margin: 0;
+    transition: color 1.5s ease;
+}
+
+.menu-icon span {
+    display: none;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    background-color: transparent;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-family: 'EB Garamond', serif;
+    transition: opacity 1.5s ease;
+}
+
+.menu-icon:hover span {
+    display: block;
+    opacity: 1;
+}
+
+.menu-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    background: none;
+}
+
+.menu-icon:hover::before {
+    opacity: 1;
+}
+
+.menu-icon:hover p {
+    color: #ffcc00;
+    text-shadow: 0 0 15px rgba(255, 204, 0, 1);
+}
+
+.main-content {
+    display: flex;
+    flex: 1; /* Utiliza todo o espaço restante na altura */
+}
+
+.sidebar {
+    width: 460px;
+    background-color: #ccc;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-image: url('images/cape1.png');
+    background-size: 100% 100%; /* Ajusta a imagem para caber completamente no contêiner sem cortes */
+    background-repeat: no-repeat;
+    background-position: center center; /* Centraliza a imagem no contêiner */
+    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.3);
+
+}
+
+.sidebar-header {
+    background-color: transparent;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sidebar-header img {
+    width: 400px;
+    height: 122px;
+    margin-top: 5px;
+    transition: filter 0.3s ease; /* Adiciona uma transição suave de 0.3 segundos para a propriedade 'filter' */
+}
+
+.sidebar-header img:hover {
+    filter: brightness(1.2); /* Ajusta o brilho da imagem ao passar o mouse */
+}
+
+
+.horizontal-menu {
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 3px;
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    border: 2px solid;
+    border-image: linear-gradient(to right, #941111, transparent, #941111);
+    border-image-slice: 1;
+}
+
+.horizontal-menu li {
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 5px;
+    color: #370000;
+    align-items: center;
+    transition: color 0.3s ease-in-out; /* Adiciona uma transição suave de cor */
+    cursor: pointer;
+}
+
+.horizontal-menu li:hover {
+    color: #941111; /* Cor do brilho ao passar o mouse */
+}
+
+.divider {
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.sidebar-footer {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: transparent;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.sidebar-footer img {
+    width: 450px;
+    height: 141px;
+    margin-bottom: 10px;
+    transition: filter 0.3s ease; /* Adiciona uma transição suave de 0.3 segundos para a propriedade 'filter' */
+}
+
+.sidebar-footer img:hover {
+    filter: brightness(1.2); /* Ajusta o brilho e a cor da imagem ao passar o mouse */
+}
+
+.content-right {
+    display: flex;
+    background-image: url('images/wallpaper_right.png'); /* Substitua 'sua-imagem.jpg' pelo caminho da sua imagem */
+    background-size: 100% 100%; /* Ajusta a imagem para caber completamente no contêiner sem cortes */
+    background-repeat: no-repeat;
+    background-position: center center; /* Centraliza a imagem no contêiner */
+    overflow-y: auto; /* Adiciona scroll apenas ao conteúdo à direita */
+}
+
+/* Estilos para a barra lateral à esquerda */
+.sidebar-central {
+    padding: 10px 30px;
+    width: 50px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; /* Adiciona alinhamento central para o texto */
+}
+
+.sidebar-central span {
+    writing-mode: vertical-rl; /* Define o modo de escrita vertical */
+    white-space: nowrap; /* Impede a quebra de linha */
+    font-family: 'Noto Serif JP Bold', serif;
+    font-size: 40px; /* Ajuste o tamanho do texto conforme necessário */
+    font-weight: bold; /* Adicione estilos de fonte conforme necessário */
+    color: #941111; /* Cor do texto */
+    letter-spacing: 20px; /* Ajuste o valor conforme necessário */
+    position: fixed;
+}
+
+/* Estilos para a barra lateral à direita */
+.sidebar-right {
+    padding: 10px 30px;
+    width: 50px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center; /* Adiciona alinhamento central para o texto */
+}
+
+.sidebar-right span {
+    writing-mode: vertical-rl; /* Define o modo de escrita vertical */
+    white-space: nowrap; /* Impede a quebra de linha */
+    font-family: 'Noto Serif JP Bold', serif;
+    font-size: 40px; /* Ajuste o tamanho do texto conforme necessário */
+    font-weight: bold; /* Adicione estilos de fonte conforme necessário */
+    color: #941111; /* Cor do texto */
+    letter-spacing: 20px; /* Ajuste o valor conforme necessário */
+    position: fixed;
+}
+
+/* Estilos para o conteúdo no meio */
+.content {
+    flex: 1;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    background-color: transparent;
+}
+
+.content p{
+    margin: 0px;
+    padding-bottom: 0px;
+    padding-top: 5px;
+    font-size: 15px;
+    font-family: 'EB Garamond Regular', serif;
+    text-align: justify;
+}
+
+.content p::first-letter {
+    font-size: 90px; /* Ajuste o tamanho conforme necessário */
+    float: left; /* Adiciona a letra capitular à esquerda do texto */
+    margin-right: 6px; /* Adiciona margem à direita para espaçamento */
+    margin-bottom: -6px; /* Remove o espaçamento inferior */
+    line-height: 0.8;
+    color: #941111;
+}
+
+.image-container {
+    width: 100%; /* Alterado para ocupar toda a largura disponível */
+    height: auto;
+    overflow: hidden;
+    display: flex; /* Adicionado para utilizar flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.image-container img {
+    margin-bottom: 0px;
+    margin-top: 5px;
+    max-width: 100%; /* Alterado para manter a proporção original */
+    height: auto;
+    display: block;
+    border: 2px solid #941111;
+}
+
+.image-container h1 {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    max-width: 100%; /* Alterado para manter a proporção original */
+    height: auto;
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'EB Garamond', serif;
+    color: #941111;
+}
+
+.image-divider {
+    width: 100%; /* Alterado para ocupar toda a largura disponível */
+    height: auto;
+    overflow: hidden;
+    display: flex; /* Adicionado para utilizar flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.image-divider img {
+    margin-bottom: 15px;
+    margin-top: 10px;
+    max-width: 100%; /* Alterado para manter a proporção original */
+    height: auto;
+    display: block;
+}
