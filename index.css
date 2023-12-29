@@ -145,6 +145,7 @@ body {
 
 .horizontal-menu a{
     text-decoration: none;
+    color: inherit;
 }
 
 .horizontal-menu li {
